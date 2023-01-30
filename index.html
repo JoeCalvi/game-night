@@ -17,24 +17,31 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-dark navbar-expand bg-dark text-light no-select">
-      <a class="navbar-brand ms-3" href="#">
-        <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
-          loading="lazy">
-        <span class="ms-2">game-night</span>
-      </a>
-    </nav>
-  </header>
-  <main>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <div id="app"></div>
+    <div class="container-fluid bg-danger text-white">
+      <div class="row m-0">
+        <div class="col-12 text-center p-3">
+          <h2>Game Night</h2>
         </div>
       </div>
     </div>
+  </header>
+  <main>
+    <!-- SECTION player template -->
+    <div class="container-fluid bg-white">
+      <div class="row p-2">
+        <div class="col-12 d-flex align-items-center justify-content-between">
+          <img src="https://via.placeholder.com/80" alt="profile pic" class="border border-warning rounded-circle">
+          <div>
+            <h5>Player Name</h5>
+          </div>
+          <span class="mdi mdi-minus-circle-outline fs-5"></span>
+          <div class="px-1 score-alignment">
+            <h4>0</h4>
+          </div>
+          <span class="mdi mdi-plus-circle-outline fs-5"></span>
+        </div>
   </main>
-  <footer class="bg-dark text-light">
+  <footer class="bg-danger text-white">
     <div class="text-center no-select">
       <p><small>Made with 💖 by CodeWorks</small></p>
     </div>
