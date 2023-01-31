@@ -5,7 +5,7 @@ import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 import { loadState } from "./Utils/Store.js"
 
-import { Player } from "../Models/Player.js"
+import { Player } from "./Models/Player.js"
 
 class AppState extends EventEmitter {
   /** @type {import('./Models/Value').Value[]} */

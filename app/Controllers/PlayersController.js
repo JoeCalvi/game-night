@@ -2,30 +2,45 @@
 // NOTE "controller" then goes to "service"
 
 
-import { appState } from "../AppState";
-import { playersService } from "../Services/PlayersService";
+import { appState } from "../AppState.js";
+import { playersService } from "../Services/PlayersService.js";
+import { getFormData } from "../Utils/FormHandler.js";
 
-
-function _drawPlayers() {
-
-    let players = appState.players
-    let template = ''
-    players.forEach(player => template += player.Template)
-
-    document.getElementById('players').innerHTML = template
-
-}
 
 export class PlayersController {
 
-    constructor() {
-        _drawPlayers()
+    drawPlayers() {
+
+        let players = appState.players
+        let template = ''
+        players.forEach(player => template += player.Template)
+
+        document.getElementById('players').innerHTML = template
+
     }
 
-    addNewPlayer(playerName){
+    addNewPlayer() {
         window.event.preventDefault()
         const form = window.event.target
-        playersService.addNewPlayer(form.playername.value)
-        _drawPlayers()
+        let playerData = getFormData(form)
+        playersService.addNewPlayer(playerData)
+        this.drawPlayers()
     }
+
+    increaseScore(name) {
+        let player = appState.players.find(player => player.name == name)
+        player.gainPoints()
+        this.drawPlayers()
+    }
+
+    decreaseScore(name) {
+        let player = appState.players.find(player => player.name == name)
+        player.losePoints()
+        this.drawPlayers()
+    }
+
+    constructor() {
+        this.drawPlayers()
+    }
+
 }
